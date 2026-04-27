@@ -20,6 +20,7 @@ class Issue(models.Model):
     assigned_to = models.ForeignKey(user, on_delete=models.SET_NULL, blank=True, null=True, related_name="assigned_issues")
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="issues")
     is_escalated = models.BooleanField(default=False)
+    due_time = models.DateTimeField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
